@@ -2,8 +2,60 @@ import cosas.*
 
 describe "group of test for cosas" {
 
-  test "first test" {
-    assert.that(true)
+  test "Knight Rider pesa 500 y peligra 10" {
+    assert.equals(10, knightRider.peligrosidad())
+    assert.equals(500, knightRider.peso())
   }
 
+  test "Bumblebee es auto" {
+    assert.equals(800, bumblebee.peso())
+    assert.equals(15, bumblebee.peligrosidad())
+  }
+
+  test "Bumblebee cambia a robot" {
+    bumblebee.cambiarEstado()
+    assert.equals(800, bumblebee.peso())
+    assert.equals(30, bumblebee.peligrosidad())
+  }
+
+  test "Hay 10 ladrillos" {
+    paqueteLadrillos.cantidad(10)
+    assert.equals(20, paqueteLadrillos.peso())
+    assert.equals(2, paqueteLadrillos.peligrosidad())
+  }
+
+  test "Arena a granel pasa a pesar 4324" {
+    arenaAGranel.peso(4324)
+    assert.equals(4324, arenaAGranel.peso())
+    assert.equals(1, arenaAGranel.peligrosidad())
+  }
+
+  test "Bateria antiarea tiene misiles" {
+    assert.equals(300, bateriaAntiarea.peso())
+    assert.equals(100, bateriaAntiarea.peligrosidad())
+  }
+
+  test "Contenedor portuario carga a Bumblebee(auto) y a Knight Rider" {
+    contenedorPortuario.agregarUnaCosa(bumblebee)
+    contenedorPortuario.agregarUnaCosa(knightRider)
+    assert.equals(1400, contenedorPortuario.peso())
+  }
+
+  test "Residuos radioactivos pasa a pesar 7657" {
+    residuosRadioactivos.peso(7657)
+    assert.equals(7657, residuosRadioactivos.peso())
+    assert.equals(200, residuosRadioactivos.peligrosidad())
+  }
+
+  test "Embalaje de seguridad tiene dentro a knight rider" {
+    assert.equals(500, embalajeDeSeguridad.peso())
+    assert.equals(5, embalajeDeSeguridad.peligrosidad())
+  }
+
+  test "Embalaje de seguridad tiene dentro bumblebee robot" {
+    bumblebee.cambiarEstado()
+    embalajeDeSeguridad.envolver(bumblebee)
+    assert.equals(800, embalajeDeSeguridad.peso())
+    assert.equals(15, embalajeDeSeguridad.peligrosidad())
+  }
 }

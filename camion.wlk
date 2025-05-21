@@ -29,4 +29,8 @@ object camion {
 
     method puedeCircular(unNivel) = not self.camionExcedido() and 
                                     self.todosLosQueSuperan(unNivel).isEmpty()
+
+    method pesaEntre(min, max) = cargaDelCamion.any({e => e.peso().between(min, max)})
+
+    method cosaMasPesa() = cargaDelCamion.max({e => e.peso()})
 }

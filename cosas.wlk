@@ -5,7 +5,7 @@ object knightRider {
 
 object bumblebee {
     method peso() = 800
-    method peligrosidad() = auto.peligrosidad()
+    method peligrosidad() = estado.peligrosidad()
     var property estado = auto
     method cambiarEstado() {
         estado = estado.cambiarEstado()
@@ -15,12 +15,12 @@ object bumblebee {
 
 object auto {
     method peligrosidad() = 15
-    method cambiarEstado() = robot
+    method cambiarEstado() {return robot}
 }
 
 object robot {
     method peligrosidad() = 30
-    method cambiarEstado() = auto
+    method cambiarEstado() {return auto}
 }
 
 object paqueteLadrillos {
