@@ -35,7 +35,7 @@ object arenaAGranel {
 }
 
 object bateriaAntiarea {
-    var misiles = true
+    var property misiles = true
     method peso() = if (bateriaAntiarea.misiles) 300 else 200
     method peligrosidad() = if (bateriaAntiarea.misiles) 100 else 0
     method cargarMisiles() {misiles = true}
